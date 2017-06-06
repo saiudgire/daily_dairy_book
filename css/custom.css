@@ -1,0 +1,16 @@
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0px;
+}
+
+.logo-top-tab {
+	padding: 15px 12px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    color: #ef6700;
+    font-size: 1.5em;
+}
