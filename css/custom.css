@@ -22,5 +22,20 @@
 } 
 
 .login-bord {
-	
+	padding: 20px;
+	background: #525252;
+	margin-top: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #ddd;
+	color: #fff;
+}
+
+.heading {
+    padding: 0px 0px 15px 0px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-align: center;
 }
