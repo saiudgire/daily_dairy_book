@@ -14,3 +14,13 @@
     color: #ef6700;
     font-size: 1.5em;
 }
+
+.center-block {  
+  display: block;  
+  margin-right: auto;  
+  margin-left: auto;  
+} 
+
+.login-bord {
+	
+}

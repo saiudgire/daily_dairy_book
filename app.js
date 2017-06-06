@@ -7,16 +7,18 @@
 
 	function config($routeProvider, $locationProvider) {
 		$routeProvider
-			.when('/login', {
+			.when('/', {
 				controller: 'loginCtr',
 				templateUrl: 'login/login.html'
 			})
-
-			.otherwise({redirectTo: '/'});
+			.otherwise({
+				redirectTo: '/'
+			});
 	}
 	run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
-	function run( $rootScope, $location, $cookies, $http){
-
-	}	
+	function run($rootScope, $location, $cookies, $http){
+		// $location.path('/login/login.html');
+		console.log('App');
+	}
 
 })();
