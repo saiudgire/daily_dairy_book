@@ -1,8 +1,8 @@
 <div class="col-sm-3 center-block">
-	<div class="login-bord">
+	<div class="login-bord" ng-controller="loginCtr">
 		<div class="heading">Login Here</div>
 		<div class="login-form">
-			<form name="loginForm">
+			<form name="loginForm" ng-submit="formSubmit()" class="form">
 			    <div class="form-group" ng-class="{true: 'error'}[submitted && loginForm.username.$invalid]">
 			      <input type="text" class="form-control" name="username" ng-model="username" placeholder="User Name" required>
 			      <div ng-show="submitted && loginForm.username.$error.required">
@@ -10,11 +10,12 @@
 			      </div>
 			    </div>
 			    <div class="form-group" ng-class="{true: 'error'}[submitted && loginForm.upassword.$invalid]">
-			      <input type="password" class="form-control" name="upassword" ng-model="upassword" placeholder="Password" required>
+			      <input type="password" class="form-control" name="upassword" ng-model="password" placeholder="Password" required>
 			      <div ng-show="submitted && loginForm.upassword.$error.required">
 			      	<span class="required">Required</span>
 			      </div>
 			    </div>
+			    {{error}}
 			    <button type="submit" class="btn btn-secondary btn-sm" ng-click="submitted=true">Submit</button>
 			</form>	
 		</div>
