@@ -46,7 +46,7 @@
   
   app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService) {
     
-    var m1 = ($(window).height() - $('.logo-top-tab').height() - 32 );
+    var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
 	$('.home-page-main').css({'height' : m1 });
 
     $scope.username = LoginService.username || sessionStorage.username;

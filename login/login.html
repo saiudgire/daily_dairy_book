@@ -2,10 +2,10 @@
 	<div class="login-main-bords">
 		<div class="login-bord">
 			<div class="text-center">
-				<span class="logo">Daily Dairy Book</span>
+				<span class="outer-logo logo">Daily Dairy Book</span>
 			</div>
 			<hr>
-			<div class="heading">Login Here</div>
+			<div class="login-heading">Login Here</div>
 			<div class="login-form">
 				<form name="loginForm" ng-submit="formSubmit()" class="form">
 				    <div class="form-group" ng-class="{true: 'error'}[submitted && loginForm.username.$invalid]">
@@ -23,7 +23,10 @@
 				    <div class="required form-group">
 				    	{{error}}	
 				    </div>			    
-				    <button type="submit" class="btn btn-warning btn-sm per100" ng-click="submitted=true">Submit</button>
+				    <button type="submit" class="btn btn-warning btn-sm per100 login-btn-css" ng-click="submitted=true">Submit</button><br/><br/>
+				    <div class="form-group click-here">
+				    	If you have registered <a href="#">click here</a>. 
+				    </div>
 				</form>	
 			</div>
 		</div>

@@ -13,14 +13,18 @@
 }
 
 .logo-top-tab {
-	padding: 15px 12px;
+	padding: 10px 12px;
     background: #333333;
     border-bottom: 1px solid #ddd;
 }
 
 .logo {
     color: #ffac07;
-    font-size: 1.5em;
+    font-size: 1.2em;
+}
+
+.outer-logo {
+	font-size: 1.5em;
 }
 
 .center-block {  
@@ -35,7 +39,7 @@
 
 .login-bord {
 	padding: 20px;
-	background: rgba(90, 90, 90, 0.9);
+	background: rgba(0, 0, 0, 0.55);
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -43,11 +47,11 @@
 	color: #fff;
 }
 
-.heading {
+.login-heading {
     padding: 0px 0px 15px 0px;
     border-bottom: 1px solid #fff;
     margin-bottom: 15px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align: center;
 }
 
@@ -62,12 +66,17 @@
 
 .per100 {
 	width: 100%;
-	padding: 8px 0px;
+}
+
+.login-btn-css {
+	padding: 9.5px 0px;
+	color: #000; 
 }
 
 .logout-btn {
 	font-size: 1.5em;
 	cursor: pointer;
+	line-height: initial;
 }
 
 .logout-btn i.fa.fa-power-off {
@@ -77,4 +86,26 @@
 .home-page-main {
 	background: #fff;
 	padding: 10px 15px;
+}
+
+.click-here a {
+	color: #f7a400;
+}
+
+.click-here a:hover {
+	text-decoration: underline;
+}
+
+.home-page-main.left-side {
+    width: 15vw;
+    display: inline-block;
+    float: left;
+    border-right: 1px solid #ddd;
+}
+
+.home-page-main.right-side {
+    width: 85vw;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
 }
