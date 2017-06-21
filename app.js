@@ -25,8 +25,27 @@
         url : '/home',
         templateUrl : 'home/home.html',
         controller : 'HomeController'
+      })
+      .state('link1', {
+        url : '/link1',
+        templateUrl : 'home/link1.html',
+        controller : 'Link1Controller'
+      })
+      .state('link2', {
+        url : '/link2',
+        templateUrl : 'home/link2.html',
+        controller : 'Link2Controller'
+      })
+      .state('link3', {
+        url : '/link3',
+        templateUrl : 'home/link3.html',
+        controller : 'Link3Controller'
       });
   }]);
+
+  function HeaderCtrl($scope) {
+      $scope.topbar = {name: "topbar.html", url: "topbar.html"};
+  }
 
   app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService) {
     $rootScope.title = "AngularJS Login Sample";
@@ -61,6 +80,69 @@
     $scope.logout = function() {
     	sessionStorage.clear();
     	$state.transitionTo('login');
+    }
+    
+  });
+
+  app.controller('Link1Controller', function($scope, $rootScope, $stateParams, $state, LoginService) {
+    
+    var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
+    $('.home-page-main').css({'height' : m1 });
+
+    $scope.username = LoginService.username || sessionStorage.username;
+    if($scope.username) {
+      sessionStorage.username = $scope.username;
+    }
+
+    if(!$scope.username) {
+      $state.transitionTo('login');
+    }
+
+    $scope.logout = function() {
+      sessionStorage.clear();
+      $state.transitionTo('login');
+    }
+    
+  });
+
+  app.controller('Link2Controller', function($scope, $rootScope, $stateParams, $state, LoginService) {
+    
+    var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
+    $('.home-page-main').css({'height' : m1 });
+
+    $scope.username = LoginService.username || sessionStorage.username;
+    if($scope.username) {
+      sessionStorage.username = $scope.username;
+    }
+
+    if(!$scope.username) {
+      $state.transitionTo('login');
+    }
+
+    $scope.logout = function() {
+      sessionStorage.clear();
+      $state.transitionTo('login');
+    }
+    
+  });
+
+  app.controller('Link3Controller', function($scope, $rootScope, $stateParams, $state, LoginService) {
+    
+    var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
+    $('.home-page-main').css({'height' : m1 });
+
+    $scope.username = LoginService.username || sessionStorage.username;
+    if($scope.username) {
+      sessionStorage.username = $scope.username;
+    }
+
+    if(!$scope.username) {
+      $state.transitionTo('login');
+    }
+
+    $scope.logout = function() {
+      sessionStorage.clear();
+      $state.transitionTo('login');
     }
     
   });
