@@ -1,24 +1,69 @@
-(function (){
-	'use strict';
+(function() {
+  var app = angular.module('myApp', ['ui.router']);
+  
+  app.run(function($rootScope, $location, $state, LoginService) {
+    $rootScope.$on('$stateChangeStart', 
+      function(event, toState, toParams, fromState, fromParams){ 
+          console.log('Changed state to: ' + toState);
+      });
+    
+      if(!LoginService.isAuthenticated()) {
+        $state.transitionTo('login');
+      }
+  });
+  
+  app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/login');
+    
+    $stateProvider
+      .state('login', {
+        url : '/login',
+        templateUrl : 'login/login.html',
+        controller : 'LoginController'
+      })
+      .state('home', {
+        url : '/home',
+        templateUrl : 'home/home.html',
+        controller : 'HomeController'
+      });
+  }]);
 
-	angular.module('dapp', ['ngRoute', 'ngCookies']).config(config).run(run);
-
-	config.$inject = ['$routeProvider', '$locationProvider'];
-
-	function config($routeProvider, $locationProvider) {
-		$routeProvider
-			.when('/', {
-				controller: 'loginCtr',
-				templateUrl: 'login/login.html'
-			})
-			.otherwise({
-				redirectTo: '/'
-			});
-	}
-	run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
-	function run($rootScope, $location, $cookies, $http){
-		// $location.path('/login/login.html');
-		console.log('App');
-	}
-
+  app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService) {
+    $rootScope.title = "AngularJS Login Sample";
+    
+    $scope.formSubmit = function() {
+      if(LoginService.login($scope.username, $scope.password)) {
+        $scope.error = '';
+        $scope.username = '';
+        $scope.password = '';
+        $state.transitionTo('home');
+      } else {
+        $scope.error = "Incorrect username/password !";
+      }   
+    };
+    
+  });
+  
+  app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService) {
+    $rootScope.title = "AngularJS Login Sample";
+    
+  });
+  
+  app.factory('LoginService', function() {
+    var admin = 'admin';
+    var pass = 'pass';
+    var isAuthenticated = false;
+    
+    return {
+      login : function(username, password) {
+        isAuthenticated = username === admin && password === pass;
+        return isAuthenticated;
+      },
+      isAuthenticated : function() {
+        return isAuthenticated;
+      }
+    };
+    
+  });
+  
 })();
