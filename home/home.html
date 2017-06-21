@@ -1,13 +1,12 @@
 <div class="wrapper">
-		<div class="logo-top-tab">
-			<span class="logo">Daily Dairy Book</span>
-			<span class="float-right logout-btn">
-				<span ui-sref="login"><i class="fa fa-power-off"></i></span>
-			</span>
-		</div>
-		<div class="home-page-main">
-			<h3>Home Page</h3>
-		</div>
+	<div class="logo-top-tab">
+		<span class="logo">Daily Dairy Book</span>
+		<span class="float-right logout-btn">
+			<span ng-click="logout()"><i class="fa fa-power-off"></i></span>
+		</span>
 	</div>
-  
+	<div class="home-page-main">
+		<h3>Welcome to Daily Dairy Book</h3>
+		User : {{username}}
+	</div>
 </div>

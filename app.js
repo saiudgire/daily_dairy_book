@@ -45,7 +45,23 @@
   });
   
   app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService) {
-    $rootScope.title = "AngularJS Login Sample";
+    
+    var m1 = ($(window).height() - $('.logo-top-tab').height() - 32 );
+	$('.home-page-main').css({'height' : m1 });
+
+    $scope.username = LoginService.username || sessionStorage.username;
+    if($scope.username) {
+    	sessionStorage.username = $scope.username;
+    }
+
+    if(!$scope.username) {
+    	$state.transitionTo('login');
+    }
+
+    $scope.logout = function() {
+    	sessionStorage.clear();
+    	$state.transitionTo('login');
+    }
     
   });
   
@@ -53,10 +69,15 @@
     var admin = 'admin';
     var pass = 'pass';
     var isAuthenticated = false;
+    var username;
     
     return {
+    	username: username,
       login : function(username, password) {
         isAuthenticated = username === admin && password === pass;
+		if(isAuthenticated) {
+        	this.username="Admin";
+        }
         return isAuthenticated;
       },
       isAuthenticated : function() {
