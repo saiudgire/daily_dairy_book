@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('myApp', ['ui.router']);
+  var app = angular.module('dapp', ['ui.router']);
   
   app.run(function($rootScope, $location, $state, LoginService) {
     $rootScope.$on('$stateChangeStart', 

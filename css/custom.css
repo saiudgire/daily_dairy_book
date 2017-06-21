@@ -4,14 +4,22 @@
 	padding: 0px;
 }
 
+.bg-image {
+	background: url("../images/bg.jpg");
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    height: 100%;
+}
+
 .logo-top-tab {
 	padding: 15px 12px;
-    background: #f1f1f1;
+    background: #333333;
     border-bottom: 1px solid #ddd;
 }
 
 .logo {
-    color: #ef6700;
+    color: #ffac07;
     font-size: 1.5em;
 }
 
@@ -21,10 +29,13 @@
   margin-left: auto;  
 } 
 
+.login-main-bords {
+	padding-top: 20vh;
+}
+
 .login-bord {
 	padding: 20px;
-	background: #525252;
-	margin-top: 20px;
+	background: rgba(90, 90, 90, 0.9);
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -42,4 +53,28 @@
 
 .required {
 	color: red;
+}
+
+.login-bord hr {
+	border-color: #fff;
+	margin-bottom: 10px;
+}
+
+.per100 {
+	width: 100%;
+	padding: 8px 0px;
+}
+
+.logout-btn {
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+.logout-btn i.fa.fa-power-off {
+	color: #fff;
+}
+
+.home-page-main {
+	background: #fff;
+	padding: 10px 15px;
 }
