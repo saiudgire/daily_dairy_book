@@ -67,7 +67,7 @@
   
   app.factory('LoginService', function() {
     var admin = 'admin';
-    var pass = 'pass';
+    var pass = 'admin';
     var isAuthenticated = false;
     var username;
     
