@@ -29,6 +29,11 @@
 	</div>
 	<div class="home-page-main right-side">
 		<h3>Linked One</h3>
-		User : {{username}}
+		User : 
+        <span ng-controller="Link1Controller">
+        <span ng-repeat="x in login">
+        {{x.fname}}
+        </span>
+        </span>
 	</div>
 </div>

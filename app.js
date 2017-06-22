@@ -4,7 +4,7 @@
   app.run(function($rootScope, $location, $state, LoginService) {
     $rootScope.$on('$stateChangeStart', 
       function(event, toState, toParams, fromState, fromParams){ 
-          console.log('Changed state to: ' + toState);
+          //console.log('Changed state to: ' + toState);
       });
     
       if(!LoginService.isAuthenticated()) {
@@ -47,9 +47,12 @@
       $scope.topbar = {name: "topbar.html", url: "topbar.html"};
   }
 
-  app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService) {
+  app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService, $http) {
     $rootScope.title = "AngularJS Login Sample";
     
+    $http.get("db/login.php")
+    .then(function (response) {$scope.login = response.data.records;});
+
     $scope.formSubmit = function() {
       if(LoginService.login($scope.username, $scope.password)) {
         $scope.error = '';
@@ -84,12 +87,13 @@
     
   });
 
-  app.controller('Link1Controller', function($scope, $rootScope, $stateParams, $state, LoginService) {
+  app.controller('Link1Controller', function($scope, $rootScope, $stateParams, $state, LoginService, $http) {
     
     var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
-    $('.home-page-main').css({'height' : m1 });
+    $('.home-page-main').css({'height' : m1 }); 
 
     $scope.username = LoginService.username || sessionStorage.username;
+
     if($scope.username) {
       sessionStorage.username = $scope.username;
     }
@@ -97,6 +101,10 @@
     if(!$scope.username) {
       $state.transitionTo('login');
     }
+
+    $http.get("db/login.php").success(function(data) {
+    	$scope.login = data;
+    });
 
     $scope.logout = function() {
       sessionStorage.clear();
