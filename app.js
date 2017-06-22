@@ -66,7 +66,7 @@
     
   });
   
-  app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService) {
+  app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService, $http) {
     
     var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
 	$('.home-page-main').css({'height' : m1 });
@@ -79,6 +79,10 @@
     if(!$scope.username) {
     	$state.transitionTo('login');
     }
+
+    $http.get("db/login.php").success(function(data) {
+      $scope.login = data;
+    });
 
     $scope.logout = function() {
     	sessionStorage.clear();
