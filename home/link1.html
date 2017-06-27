@@ -10,18 +10,18 @@
             <nav class="sidebar-nav">
                 <ul class="nav">
                     <li class="nav-item open">
-                        <a class="nav-link active" ui-sref="home">
-                        	<i class="fa fa-tachometer"></i> Dashboard
+                        <a class="nav-link" ng-class="getClass('/home')" ui-sref="home">
+                            <i class="fa fa-tachometer"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item nav-dropdown">
-                        <a class="nav-link" ui-sref="link1"><i class="fa fa-tachometer"></i> Link1</a>
+                        <a class="nav-link" ng-class="getClass('/link1')" ui-sref="link1"><i class="fa fa-tachometer"></i> Link1</a>
                     </li>
                     <li class="nav-item nav-dropdown">
-                        <a class="nav-link" ui-sref="link2"><i class="fa fa-tachometer"></i> Link2</a>
+                        <a class="nav-link" ng-class="getClass('/link2')" ui-sref="link2"><i class="fa fa-tachometer"></i> Link2</a>
                     </li>
                     <li class="nav-item nav-dropdown">
-                        <a class="nav-link" ui-sref="link3"><i class="fa fa-tachometer"></i> Link3</a>
+                        <a class="nav-link" ng-class="getClass('/link3')"  ui-sref="link3"><i class="fa fa-tachometer"></i> Link3</a>
                     </li>
                 </ul>
             </nav>

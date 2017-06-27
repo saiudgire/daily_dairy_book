@@ -15,7 +15,7 @@
 .logo-top-tab {
 	padding: 10px 12px;
     background: #333333;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #5b5f67;
 }
 
 .logo {
@@ -198,7 +198,8 @@
 	padding: 0.75rem 1rem;
 	color: #fff;
 	text-decoration: none;
-	background: transparent; 
+	background: transparent;
+	cursor: pointer; 
 }
 .sidebar .nav .nav-item .nav-link:hover,
 .sidebar .nav .nav-item .navbar .dropdown-toggle:hover,

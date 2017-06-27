@@ -47,11 +47,15 @@
       $scope.topbar = {name: "topbar.html", url: "topbar.html"};
   }
 
-  app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService, $http) {
+  app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService, $http, $location) {
     $rootScope.title = "AngularJS Login Sample";
     
     $http.get("db/login.php")
     .then(function (response) {$scope.login = response.data.records;});
+
+    $scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    }
 
     $scope.formSubmit = function() {
       if(LoginService.login($scope.username, $scope.password)) {
@@ -66,10 +70,14 @@
     
   });
   
-  app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService, $http) {
+  app.controller('HomeController', function($scope, $rootScope, $stateParams, $state, LoginService, $http, $location) {
     
     var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
-	$('.home-page-main').css({'height' : m1 });
+	  $('.home-page-main').css({'height' : m1 });
+
+    $scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    }
 
     $scope.username = LoginService.username || sessionStorage.username;
     if($scope.username) {
@@ -91,10 +99,14 @@
     
   });
 
-  app.controller('Link1Controller', function($scope, $rootScope, $stateParams, $state, LoginService, $http) {
+  app.controller('Link1Controller', function($scope, $rootScope, $stateParams, $state, LoginService, $http, $location) {
     
     var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
-    $('.home-page-main').css({'height' : m1 }); 
+    $('.home-page-main').css({'height' : m1 });
+
+    $scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    } 
 
     $scope.username = LoginService.username || sessionStorage.username;
 
@@ -117,10 +129,14 @@
     
   });
 
-  app.controller('Link2Controller', function($scope, $rootScope, $stateParams, $state, LoginService) {
+  app.controller('Link2Controller', function($scope, $rootScope, $stateParams, $state, LoginService, $location) {
     
     var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
     $('.home-page-main').css({'height' : m1 });
+
+    $scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    }
 
     $scope.username = LoginService.username || sessionStorage.username;
     if($scope.username) {
@@ -138,10 +154,14 @@
     
   });
 
-  app.controller('Link3Controller', function($scope, $rootScope, $stateParams, $state, LoginService) {
+  app.controller('Link3Controller', function($scope, $rootScope, $stateParams, $state, LoginService, $location) {
     
     var m1 = ($(window).height() - $('.logo-top-tab').height() - 22 );
     $('.home-page-main').css({'height' : m1 });
+
+    $scope.getClass = function (path) {
+      return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    }
 
     $scope.username = LoginService.username || sessionStorage.username;
     if($scope.username) {
