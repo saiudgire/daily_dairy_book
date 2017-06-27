@@ -225,7 +225,7 @@
 .sidebar .nav .nav-item .nav-link:hover i,
 .sidebar .nav .nav-item .navbar .dropdown-toggle:hover i,
 .navbar .sidebar .nav .nav-item .dropdown-toggle:hover i {
-    color: #fff !important;
+    color: #ff9d00 !important;
 }
 
 .sidebar .nav .nav-item .nav-link.active,
@@ -238,7 +238,7 @@
 .sidebar .nav .nav-item .nav-link.active i,
 .sidebar .nav .nav-item .navbar .active.dropdown-toggle i,
 .navbar .sidebar .nav .nav-item .active.dropdown-toggle i {
-    color: #36a9e1;
+    color: #ff9d00;
 }
 
 .sidebar .nav .nav-item .nav-link [class^="icon-"],
